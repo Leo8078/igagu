@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="mypage.css">
+    <link rel="stylesheet" href="header.css">
+    <script src="mypage.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header-container"></div>
+    <!-- 헤더 -
+    <header>
+        <nav>
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span>&#9776;</span>
+            </button>
+            <a href="index.html" class="logo">!gagU</a>
+        </nav>
+    </header>
+    -->   
+    
+    <!-- 현재 위치 표시 -->
+    <div class="current-location">
+        <span class="step1">홈</span>
+        <span class="separator">></span>
+        <span class="step2">마이페이지</span>
+    </div>
+
+    <!-- 마이페이지 타이틀 -->
+    <h1 class="page-title">My Page</h1>
+
+    <!-- 회원 정보 -->
+    <div class="userinfo-wrapper">
+        <div class="userinfo">
+            <div class="userinfo-header">
+                <h2 class="username"><span id="username"></span> 님</h2>
+                <a href="logout.php" class="logout-link">로그아웃</a>
+            </div>
+            <p class="membership-status">안녕하세요, 회원님의 등급은 <span class="membership-level" id="membership-level"></span>입니다.</p>
+            <div class="account-details">
+                <div class="account-detail">
+                    <strong>총 주문</strong>
+                    <p>130,200원</p>
+                </div>
+                <span class="separator">|</span>
+                <div class="account-detail">
+                    <strong>총 회원 적립금</strong>
+                    <p>2,300원</p>
+                </div>
+                <span class="separator">|</span>
+                <div class="account-detail">
+                    <strong>사용 회원 적립금</strong>
+                    <p>2,300원</p>
+                </div>
+                <span class="separator">|</span>
+                <div class="account-detail">
+                    <a href="coupon-history.html" class="coupon_arrow">쿠폰 ></a>
+                    <p>0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 광고 배너 -->
+    <div class="ad-banner">
+        <img src="image/spon2.jpg" alt="광고 배너 이미지" class="ad-image">
+        <!--<p>광고 배너 자리</p>-->
+    </div>
+
+    <!-- 주문 내역 -->
+    <div class="order-history">
+        <h3>주문 내역 <span class="recent-period">최근 2개월</span></h3>
+    </div>
+
+    <!-- 주문 내역 테이블 (예시) -->
+    <div class="order-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>주문일자/주문번호</th>
+                    <th>상품이름</th>
+                    <th>수량</th>
+                    <th>상품정보</th>
+                    <th>금액</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 데이터가 없으면 "최근 주문 내역이 없습니다." 표시 -->
+                <tr>
+                    <td colspan="5">최근 주문 내역이 없습니다.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 푸터 -->
+    <footer>
+        <div id="footer_container"></div>
+        <script src="loadfooter.js"></script> 
+    </footer>
+
+    <script src="header.js"></script>
+</body>
+</html>

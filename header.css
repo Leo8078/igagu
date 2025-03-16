@@ -1,0 +1,333 @@
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background: #000000;
+    color: #ffffff;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 60px;
+}
+
+.nav-links li {
+    position: relative;
+  }
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+}
+
+/* 상위 네비게이션 링크만 드롭다운이랑 안겹치게 */
+.nav-links > li > a:hover {
+    color: #9bacbf; 
+    font-weight: bold; 
+}
+
+  /* 드롭다운 메뉴 스타일 */
+  .dropdown-menu {
+    display: none; /* 기본적으로 숨김 */
+    overflow: hidden; /* 넘치는 부분 숨기기 */
+    transition: max-height 0.3s ease; /* 부드러운 애니메이션 효과 */
+    position: absolute;
+    top: 210%;
+    left: -440%;
+    width: 1000px; /* 드롭다운 전체 너비 */
+    background-color: rgba(0, 0, 0, 0.9); /* 투명도 */
+    padding: 20px;
+    z-index: 1000;
+  }
+  
+  /* 드롭다운 내부 레이아웃 */
+  .dropdown-content {
+    display: flex;
+    justify-content: space-between; /* 섹션 사이 여백 균등 분배 */
+    align-items: flex-start;
+  }
+  
+  .menu-section {
+    flex: 1; /* 각 섹션 동일한 너비 */
+    padding: 10px;
+  }
+  
+  .menu-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+  }
+  
+  .menu-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-section li {
+    margin: 5px 0;
+    color: #ffffff;
+  }
+  
+  .menu-section li a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  .menu-section li a:hover {
+    color: #828282;
+  }
+  
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #d3d3d3;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-left: 100px;
+    
+}
+
+.search-container input{
+    background-color: #d3d3d3;
+    border: none;
+    outline: none;
+}
+
+.search-container i {
+    color: #000;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.search-container button {
+    all: unset;
+}
+
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: none; /* 기본적으로 숨김 */
+    z-index: 100;
+    padding: 20px;
+    width: 250px;
+}
+
+.search-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* 열 사이 간격 */
+}
+
+.search-columns > div {
+    flex: 1; /* 동일한 너비로 분할 */
+}
+
+.search-dropdown h4 {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 검색어 목록 스타일 */
+.search-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-dropdown ul li {
+    padding: 5px 0;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.search-dropdown ul li:hover {
+    background-color: #f0f0f0;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.user-icon {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.user-bag {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.out-icon {
+    display: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+/* 기본적으로 햄버거 아이콘 숨기기 */
+.hamburger-btn {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    position: absolute; /* 절대 위치로 설정 */
+    top: 50%; /* 세로 가운데 정렬 */
+    left: 50px; 
+    transform: translateY(-50%); /* 세로 가운데 정렬 */
+}
+
+/* show-hamburger 클래스가 있을 때 햄버거 아이콘 표시 */
+body.show-hamburger .hamburger-btn {
+    display: block;
+}
+
+
+#login-button {
+    color: white; 
+    text-decoration: none; 
+}
+
+#login-button:visited {
+    color: white; 
+}
+
+#login-button:hover {
+    color: #007bff;
+    transition: color 0.3s ease; 
+}
+
+/* 사이드 메뉴 스타일 */
+.side-menu {
+    width: 300px;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.8); /* 투명도 */
+    color: white;
+    position: fixed;
+    left: -20%;
+    top: 0;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* 그림자 */
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+}
+
+/* 사이드 메뉴 열기 */
+.side-menu.open {
+    left: 0px; /* 메뉴가 보이도록 위치 변경 */
+}
+
+/* 메뉴 리스트 스타일 */
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 메뉴 항목 스타일 */
+.menu-item {
+    margin-bottom: 10px;
+}
+
+/* 메뉴 타이틀 스타일 */
+.menu-title {
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+}
+
+/* 서브 메뉴 스타일 - 기본적으로 숨기기 */
+.submenu {
+    display: none;
+    margin-left: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+/* 서브 메뉴 항목 스타일 */
+.submenu li a {
+    text-decoration: none;
+    color: #ccc;
+    padding: 5px 0;
+    display: block;
+    padding-left: 25px; /* 들여쓰기 */
+}
+
+.submenu li a:hover {
+    color: white;
+}
+
+/* 메뉴 활성화 시 서브 메뉴 보이기 */
+.menu-item.active .submenu {
+    display: block;
+}
+
+/* 닫기 버튼 스타일 */
+.close-btn {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 30px;
+    position: relative; /* X 버튼 아래 메뉴를 배치하기 위해 */
+    cursor: pointer;
+    align-self: flex-end; /* X 버튼을 오른쪽 끝으로 */
+    margin-bottom: 20px; /* X 버튼 아래 간격 */
+}

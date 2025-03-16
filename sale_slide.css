@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.sale-items {
+    text-align: center;
+    padding: 5em 0;
+}
+
+.sale-items h2 {
+    font-size: 3.5em;
+    font-weight: normal;
+}
+
+.sale-items p {
+    font-size: 1.25em;
+}
+
+.product-info {
+    padding: 16px;
+    text-align: left; /* 왼쪽 정렬 */
+    position: relative;
+}
+
+.product h1 {
+    color: #ff2a2a;
+}
+
+.product button {
+    margin-top: 1em;
+    border: none;
+}
+
+.brand-name {
+    font-size: 14px;
+    color: #999;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.price {
+    font-size: 16px;
+    color: #333;
+}
+
+details-link {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.details-link:hover {
+    text-decoration: underline;
+}
+
+.product, .brand {
+    background-color: #ffffff;
+    width: 350px;
+    height: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image1 {
+    width: 350px;
+    height: 280px;
+    margin-bottom: 1em;
+    background: url("image/ta.jpg") no-repeat center center/cover;
+}
+
+.product-image2 {
+    width: 350px;
+    height: 280px;
+    margin-bottom: 1em;
+    background: url("image/chair-3274474_1280.jpg") no-repeat center center/cover;
+}
+
+.product-image3 {
+    width: 350px;
+    height: 280px;
+    margin-bottom: 1em;
+    background: url("image/kitchen-9123635_1280.jpg") no-repeat center center/cover;
+}
+
+.product-image4 {
+    width: 350px;
+    height: 280px;
+    margin-bottom: 1em;
+    background: url("image/furniture-6048139_1280.jpg") no-repeat center center/cover;
+}
+
+.product-image5 {
+    width: 350px;
+    height: 280px;
+    margin-bottom: 1em;
+    background: url("image/living-room-8480223_1280.jpg") no-repeat center center/cover;
+}
+
+.product-image6 {
+    width: 350px;
+    height: 280px;
+    margin-bottom: 1em;
+    background: url("image/wt.png") no-repeat center center/cover;
+}
+
+.product-image7 {
+    width: 350px;
+    height: 280px;
+    margin-bottom: 1em;
+    background: url("image/living-room-8620584_1280.png") no-repeat center center/cover;
+}
+
+.scroll-wrapper {
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+    width: 100%;
+    height: 550px;
+}
+
+.scrollable-element {
+    display: flex;
+    gap: 1.5em;
+    overflow-x: auto; /* 가로 스크롤 가능 */
+    scroll-behavior: smooth; /* 부드러운 스크롤 */
+    margin-top: 2em;
+    margin-left: 4em;
+}
+
+/* 상품 카드 스크롤바 숨기기 */
+.scrollable-element::-webkit-scrollbar {
+    display: none;
+}

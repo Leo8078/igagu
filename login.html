@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- 헤더 부분 -->
+    <header>
+        <nav>
+            <a href="main.html" class="logo">!gagU</a>
+        </nav>
+    </header>
+
+    <div class="login-wrapper">
+        <h2 class="login-title">로그인</h2>
+        <div class="login-container">
+            <h3 class="section-title">회원 로그인</h3>
+            <form class="login-form" action="login.php" method="POST">
+                <div class="input-group">
+                    <div class="input-fields">
+                        <input type="text" name="username" id="username" placeholder="아이디 입력" required>
+                        <input type="password" name="password" id="password" placeholder="비밀번호 입력" required>
+                    </div>
+                    <button type="submit" class="login-btn">로그인</button>
+                </div>
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">&nbsp;아이디 저장</label>
+                </div>
+            </form>
+
+            <!-- SNS 로그인 -->
+            <div class="social-login">
+                <img src="image/naver.png" alt="네이버" class="social-icon">
+                <img src="image/kakao.png" alt="카카오" class="social-icon">
+                <img src="image/google.png" alt="구글" class="social-icon">
+            </div>
+
+            <!-- 비회원 주문 조회 -->
+            <h3 class="order-title">비회원 주문 조회</h3>
+            <form class="order-form">
+                <div class="input-group">
+                    <div class="input-fields">
+                        <input type="text" placeholder="주문자명">
+                        <input type="text" placeholder="주문번호">
+                    </div>
+                    <button type="button" class="order-btn">확인</button>
+                </div>
+                <p class="note">※ 주문자명과 비회원 주문번호를 입력 시 조회 가능합니다.</p>
+            </form>
+        </div>
+        <div class="find-container">
+            <a href="find.html" class="find-link">아이디 찾기</a>
+            <span class="separator">|</span>
+            <a href="find.html#" class="find-link">비밀번호 찾기</a>
+            <span class="separator">|</span>
+            <a href="signup1.html" class="find-link">회원가입</a>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

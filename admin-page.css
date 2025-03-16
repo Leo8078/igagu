@@ -1,0 +1,162 @@
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    padding: 20px;
+}
+
+/* 헤더 */
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 90px;
+}
+
+/* 검색창 */
+#search {
+    width: 100%;
+    padding: 8px;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#search:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* 상품 목록 테이블 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+table th {
+    background-color: #000;
+    color: #fff;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #b0a0a0;
+}
+
+button:active {
+    background-color: #3c3c3c;
+}
+
+#pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#pagination button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    background-color: #b0a0a0;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* 활성화된 페이지 버튼 강조 */
+#pagination button.active {
+    background-color: #000;  /* 현재 페이지 배경색 */
+    color: white;               /* 현재 페이지 글자 색 */
+    font-weight: bold;          /* 글자 굵게 */
+}
+
+#pagination button:hover {
+    background-color: #3c3c3c;
+}
+
+#pagination button:active {
+    background-color: #000000;
+}
+
+#pagination button.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button.delete-btn {
+    background-color: #e53e3e;
+    padding: 5px 10px;
+}
+
+button.delete-btn:hover {
+    background-color: #c53030;
+}
+
+/* 버튼 스타일 */
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* 상품 추가 버튼 */
+button[type="button"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+button[type="button"]:hover {
+    background-color: #0056b3;
+}

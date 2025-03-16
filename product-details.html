@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 상세 페이지</title>
+    <link rel="stylesheet" href="product-details.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="product-details">
+        <!-- 상품 정보 -->
+        <div class="product-info">
+            <div class="product-image">
+                <img id="product-image" src="" alt="상품 이미지">
+            </div>
+            <div class="product-details-text">
+                <h2 id="product-name" class="product-name">상품 이름</h2>
+                <p id="product-price" class="product-price">₩ 0</p>
+                <p id="product-description" class="product-description">상품 설명이 여기에 표시됩니다.</p>
+
+                <!-- 혜택 정보 -->
+                <div class="benefit-info">
+                    <h3>혜택정보</h3>
+                    <ul id="product-benefits">
+                        <!-- 동적 혜택 데이터 -->
+                    </ul>
+                </div>
+
+                <!-- 옵션 선택 -->
+                <div class="product-options">
+                    <label for="product-size">사이즈:</label>
+                    <select id="product-size"></select>
+
+                    <label for="product-color">색상:</label>
+                    <select id="product-color"></select>
+                </div>
+
+                <!-- CTA 버튼 -->
+                <div class="cta-buttons">
+                    <button id="add-to-cart" class="add-to-cart">장바구니에 추가</button>
+                    <button id="buy-now" class="buy-now">바로 구매</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 추천 상품 -->
+        <div class="related-products">
+            <h3>관련 상품</h3>
+            <div id="related-products" class="product-list">
+                <!-- 동적 관련 상품 데이터 -->
+            </div>
+        </div>
+
+        <!-- "상품정보" 섹션 추가 -->
+        <div class="product-details-more">
+            <h3 class="section-title">상품정보</h3>
+            <div id="product-detail-images" class="product-description-images">
+                <!-- 동적 상세 이미지 -->
+            </div>
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <div id="footer_container"></div>
+        <script src="loadfooter.js"></script> 
+    </footer>
+    <script src="header.js"></script>
+    <script src="product-details.js"></script>
+</body>
+</html>

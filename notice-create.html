@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항 작성</title>
+    <link rel="stylesheet" href="notice.css">
+    <link rel="stylesheet" href="header.css">
+    <script src="customer-service.js" defer></script>
+    <script src="notice.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- 헤더 -->
+    <div id="header-container"></div>
+
+    <h1 class="page-title">공지사항 작성</h1>
+    <form id="notice-form">
+        <div>
+            <img src="image/logo_smaller_transparent.png" class="background-image">
+            <label for="title">제목</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div>
+            <label for="content">내용</label>
+            <textarea id="content" name="content" required></textarea>
+        </div>
+        <button type="submit">작성완료</button>
+    </form>
+
+    <script src="header.js"></script>
+    <script>
+        document.getElementById('notice-form').addEventListener('submit', (event) => {
+            event.preventDefault(); // 기본 폼 제출을 막음
+
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+
+            // 제목에서 <span> 태그 제거
+            const cleanedTitle = title.replace(/<[^>]*>/g, '');  // HTML 태그 제거
+
+            // 서버로 로그인 요청 (AJAX)
+            fetch('notice-create.php', {
+                method: 'POST',
+                body: JSON.stringify({ title, content }), // 제목과 내용을 JSON으로 전송
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) { // 성공적으로 작성되면
+                    alert('공지사항이 작성되었습니다!');
+                    window.location.href = 'notice.html'; // 공지사항 목록 페이지로 이동
+                } else {
+                    alert('공지사항 작성에 실패했습니다.');
+                }
+            })
+            .catch(error => {
+                console.error('공지사항 작성에 실패했습니다.', error);
+                alert('공지사항 작성 중 오류가 발생했습니다.');
+            });
+        });
+    </script>
+</body>
+</html>

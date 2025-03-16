@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin-page.css">
+    <link rel="stylesheet" href="header.css">
+    <title>상품 관리</title>
+</head>
+<body>
+    <div id="header-container"></div>
+    <h1>상품 관리</h1>
+
+    <!-- 검색 기능 -->
+    <label for="search">상품명 검색:</label>
+    <input type="text" id="search" placeholder="상품명을 검색하세요" onkeyup="searchProducts()">
+
+    <!-- 상품 목록 테이블 -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>상품명</th>
+                <th>가격</th>
+                <th>카테고리</th>
+                <th>상세보기</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody id="product-list">
+            <!-- 상품 목록이 동적으로 여기에 삽입됨 -->
+        </tbody>
+    </table>
+
+    <!-- 페이지네이션 -->
+    <div id="pagination"></div>
+
+    <button onclick="location.href='product-add.html'">상품 추가</button>
+
+    <script>
+        let currentPage = 1;
+        const productsPerPage = 5;
+
+        // 상품 목록 불러오기 (AJAX)
+        function loadProducts(page = 1) {
+            currentPage = page; // 현재 페이지 업데이트
+            fetch(`get-products.php?page=${page}&limit=${productsPerPage}`)
+                .then(response => response.json())
+                .then(data => {
+                    const productList = document.getElementById('product-list');
+                    productList.innerHTML = ''; // 기존 목록 초기화
+
+                    // 상품 목록 표시
+                    data.products.forEach(product => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${product.name}</td>
+                            <td>${Math.floor(product.price)}</td>
+                            <td>${product.category}</td>
+                            <td><a href="product-details.html?id=${product.id}">상세보기</a></td>
+                            <td><a href="product-edit.html?id=${product.id}">수정</a></td>
+                            <td><button onclick="deleteProduct(${product.id})">삭제</button></td>
+                        `;
+                        productList.appendChild(row);
+                    });
+
+                    // 페이지네이션 생성
+                    const pagination = document.getElementById('pagination');
+                    pagination.innerHTML = '';
+
+                    const totalPages = data.totalPages;
+
+                    // 첫 페이지 버튼
+                    if (currentPage > 1) {
+                        const firstPageBtn = document.createElement('button');
+                        firstPageBtn.textContent = '<<';
+                        firstPageBtn.onclick = () => loadProducts(1);
+                        firstPageBtn.classList.add('pagination-btn');
+                        pagination.appendChild(firstPageBtn);
+                    }
+
+                    // 이전 페이지 버튼
+                    if (currentPage > 1) {
+                        const prevPageBtn = document.createElement('button');
+                        prevPageBtn.textContent = '이전';
+                        prevPageBtn.onclick = () => loadProducts(currentPage - 1);
+                        prevPageBtn.classList.add('pagination-btn');
+                        pagination.appendChild(prevPageBtn);
+                    }
+
+                    // 페이지 번호 표시 (현재 페이지를 중심으로 범위 지정)
+                    const range = 2; // 표시할 페이지 번호 범위
+                    let startPage = Math.max(currentPage - range, 1);
+                    let endPage = Math.min(currentPage + range, totalPages);
+
+                    // 페이지 번호 표시
+                    for (let i = startPage; i <= endPage; i++) {
+                        const pageBtn = document.createElement('button');
+                        pageBtn.textContent = i;
+                        pageBtn.className = (i === currentPage) ? 'pagination-btn active' : 'pagination-btn';
+                        pageBtn.onclick = () => loadProducts(i);
+                        pagination.appendChild(pageBtn);
+                    }
+
+                    // 다음 페이지 버튼
+                    if (currentPage < totalPages) {
+                        const nextPageBtn = document.createElement('button');
+                        nextPageBtn.textContent = '다음';
+                        nextPageBtn.onclick = () => loadProducts(currentPage + 1);
+                        nextPageBtn.classList.add('pagination-btn');
+                        pagination.appendChild(nextPageBtn);
+                    }
+
+                    // 마지막 페이지 버튼
+                    if (currentPage < totalPages) {
+                        const lastPageBtn = document.createElement('button');
+                        lastPageBtn.textContent = '>>';
+                        lastPageBtn.onclick = () => loadProducts(totalPages);
+                        lastPageBtn.classList.add('pagination-btn');
+                        pagination.appendChild(lastPageBtn);
+                    }
+                });
+        }
+
+        // 상품 삭제 함수
+        function deleteProduct(id) {
+            if (confirm('정말 삭제하시겠습니까?')) {
+                fetch('product-delete.php', {
+                    method: 'POST',
+                    body: JSON.stringify({ id }),
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('상품이 삭제되었습니다.');
+                        loadProducts(currentPage); // 현재 페이지 번호를 유지하며 상품 목록 갱신
+                    } else {
+                        alert('삭제에 실패했습니다. 오류: ' + data.error);
+                    }
+                });
+            }
+        }
+
+        // 검색 기능
+        function searchProducts() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            fetch(`get-products.php?search=${searchTerm}&page=1&limit=${productsPerPage}`)
+                .then(response => response.json())
+                .then(data => {
+                    const productList = document.getElementById('product-list');
+                    productList.innerHTML = '';
+                    data.products.forEach(product => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${product.name}</td>
+                            <td>${Math.floor(product.price)}</td>
+                            <td>${product.category}</td>
+                            <td><a href="product-details.html?id=${product.id}">상세보기</a></td>
+                            <td><a href="product-edit.html?id=${product.id}">수정</a></td>
+                            <td><button onclick="deleteProduct(${product.id})">삭제</button></td>
+                        `;
+                        productList.appendChild(row);
+                    });
+                });
+        }
+
+        // 페이지 로드 시 상품 목록 불러오기
+        loadProducts(currentPage);
+    </script>
+    <script src="header.js"></script>
+</body>
+</html>

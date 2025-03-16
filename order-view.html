@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문완료</title>
+    <link rel="stylesheet" href="complete.css">
+    <link rel="stylesheet" href="header.css">
+    <script src="header.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="progress-wrapper2">
+        <h5 class="mini-title1">상세 조회</h5>
+    </div>
+    <hr class="progress-line2">
+    <div class="filter-bar">
+        <div>
+            <label for="period">기간: </label>
+            <select id="period">
+                <option>1주일</option>
+                <option>1개월</option>
+                <option>3개월</option>
+                <option>1년</option>
+            </select>
+            <input type="date"> ~ <input type="date">
+        </div>
+        <div>
+            <label for="category">종류: </label>
+            <select id="category">
+                <option>가구</option>
+                <option>인테리어</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="sort-container">
+        <!-- 첫 번째 그룹 -->
+        <div class="sort-group-left">
+            <button class="sort-button" id="latestSort">최신순</button>
+            <button class="sort-button" id="oldestSort">과거순</button>
+        </div>
+    
+        <!-- 두 번째 그룹 -->
+        <div class="sort-group-right">
+            <button class="sort-button" id="buy">구매</button>
+            <button class="sort-button" id="change">교환</button>
+            <button class="sort-button" id="sell">반품</button>
+        </div>
+        <div>
+        <button class="button" id="button">상세조회하기</button>
+        </div>
+    </div>
+
+    <hr class="progress-line2">
+
+    <div class="progress-wrapper2">
+        <h5 class="mini-title1">주문 내역</h5>
+    </div>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>주문번호</th>
+                    <th>주문일자</th>
+                    <th>상품정보</th>
+                    <th>수량</th>
+                    <th>금액</th>
+                    <th>상태</th>
+                </tr>
+            </thead>
+            <tbody id="order-items">
+                <!-- JavaScript가 데이터를 동적으로 추가합니다 -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // AJAX 요청을 통해 주문 내역 가져오기
+            $.ajax({
+                url: 'order_complete.php', // PHP 파일
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    var tbody = $('#order-items'); // tbody에 데이터를 삽입
+                    if (data.length === 0) {
+                        tbody.append('<tr><td colspan="6">주문 내역이 없습니다.</td></tr>');
+                    } else {
+                        // 받은 데이터를 테이블에 추가
+                        data.forEach(function(item) {
+                            var row = $('<tr>');
+                            row.append('<td>' + item.order_number + '</td>');
+                            row.append('<td>' + item.order_date + '</td>');
+                            row.append('<td>' + item.product_name + (item.size ? ' / ' + item.size : '') + (item.color ? ' / ' + item.color : '') + '</td>');
+                            row.append('<td>' + item.quantity + '</td>');
+                            row.append('<td>' + item.price.toLocaleString() + '원</td>'); // 금액에 ',' 추가
+                            row.append('<td>배송 중</td>'); // 상태는 고정값
+                            tbody.append(row);
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log("AJAX 오류:", error);
+                    alert("주문 내역을 가져오는 데 실패했습니다.");
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

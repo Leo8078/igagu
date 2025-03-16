@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니</title>
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="header.css">
+    <script src="connection1.js" defer></script>
+    <script src="connection.js" defer></script>
+    <script src="cart.js" defer></script>
+    <script src="header.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+
+    <div class="progress-wrapper">
+        <h2 class="signup-title">장바구니</h2>
+        <div class="progress-bar">
+            <span class="step1">01 장바구니</span>
+            <span class="separator">></span>
+            <span class="step2">02 주문서 작성</span>
+            <span class="separator">></span>
+            <span class="step3">03 주문완료</span>
+        </div>
+    </div>
+    <hr class="progress-line">
+
+    <div class="cart-container">
+        <div class="cart-items">
+            <!-- 장바구니 항목이 여기에 동적으로 추가됩니다. -->
+        </div>
+    </div>
+
+    <div class="cart-summary-bar">
+        <a href="main.html">← 상품 더 보러가기</a>
+        <button id="delete-btn" class="delete-btn">선택 상품 삭제</button>
+    </div>
+
+    <div class="container">
+        <div class="summary">
+            <p>총 상품 금액: <span id="total-price">0</span>원</p>
+            <p>배송비: <span id="shipping-fee">0</span>원</p>
+            <p>합계: <span id="total-cost">0</span>원</p>
+        </div>
+    </div>
+
+    <div class="navigation-btns">
+        <button class="next-btn" id="next-btn" disabled>주문하러 가기</button>
+    </div>
+    
+</body>
+
+</html>

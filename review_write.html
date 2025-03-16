@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리뷰 작성</title>
+    <link rel="stylesheet" href="header.css"> <!-- 헤더 스타일 적용 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 100px auto; /* 헤더 높이를 고려해 여백 추가 */
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        td input, td select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .checkbox-container {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .notice {
+            text-align: center;
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div> <!-- 헤더 컨테이너 추가 -->
+
+    <div class="container">
+        <form action="/submit" method="post">
+            <table>
+                <tr>
+                    <th>리뷰작성</th>
+                    <td><input type="text" name="review_url" placeholder="리뷰를 작성해주세요"></td>
+                </tr>
+                <tr>
+                    <th>작성한 상품명 캡쳐</th>
+                    <td><input type="file" name="product_capture" accept="image/*"></td>
+                </tr>
+                <tr>
+                    <th>상품명</th>
+                    <td><input type="text" name="product_name" placeholder="상품명을 입력하세요"></td>
+                </tr>
+                <tr>
+                    <th>구매 쇼핑몰 아이디</th>
+                    <td>
+                        <select name="shopping_mall_id">
+                            <option value="">아이디를 선택하세요</option>
+                            <option value="mall_1">쇼핑몰 1</option>
+                            <option value="mall_2">쇼핑몰 2</option>
+                            <option value="mall_3">쇼핑몰 3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>구매 일자</th>
+                    <td><input type="date" name="purchase_date"></td>
+                </tr>
+            </table>
+            <div class="checkbox-container">
+                <input type="checkbox" name="agree" required>
+                <label>위 약관에 모두 동의합니다.</label>
+            </div>
+            <button type="submit" class="submit-btn">제출하기</button>
+        </form>
+        <div class="notice">위 약관에 모두 동의합니다.</div>
+    </div>
+
+    <script src="header.js"></script> <!-- 헤더 스크립트 적용 -->
+</body>
+</html>

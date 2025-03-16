@@ -1,0 +1,510 @@
+/* 공통 스타일 */
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%; /* 전체 화면 높이를 채우도록 설정 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* 콘텐츠와 푸터를 세로로 배치 */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+}
+
+.page-title {
+    text-align: center;
+    margin-top: 140px;
+    margin-bottom: 80px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.progress-line {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 0px;
+    height: 1px; /* 선의 두께 고정 */
+    background-color: #000; /* 선의 색상 */
+    box-sizing: content-box; /* 높이에 보더와 패딩 포함하지 않음 */
+}
+
+.progress-line2 {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+/* 사이드 메뉴 스타일 */
+.side-menu {
+    width: 250px;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.8); /* 투명도 */
+    color: white;
+    position: fixed;
+    left: -300px;
+    top: 0;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding: 20px;
+}
+
+/* 사이드 메뉴 열기 */
+.side-menu.open {
+    left: 0; /* 메뉴가 보이도록 위치 변경 */
+}
+
+/* 메뉴 항목 스타일 */
+.menu-item {
+    margin-bottom: 10px;
+}
+
+/* 메뉴 타이틀 스타일 */
+.menu-title {
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+}
+
+/* 서브 메뉴 스타일 - 기본적으로 숨기기 */
+.submenu {
+    display: none;
+    margin-left: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+/* 서브 메뉴 항목 스타일 */
+.submenu li a {
+    text-decoration: none;
+    color: #ccc;
+    padding: 5px 0;
+    display: block;
+}
+
+.submenu li a:hover {
+    color: white;
+}
+
+/* 메뉴 활성화 시 서브 메뉴 보이기 */
+.menu-item.active .submenu {
+    display: block;
+}
+
+/* 메뉴 닫기 버튼 */
+.close-btn {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 30px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+/* 메인 컨테이너 */
+.main-container {
+    flex: 1; /* 남은 공간을 차지 */
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px auto 0; /* 헤더 공간 확보 후 중앙 정렬 */
+}
+/* 사이드 메뉴 */
+.customer-side-menu {
+    width: 15%; /* 1/5 화면 */
+    background: #f9f9f9;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.customer-side-menu h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center; /* 제목 가운데 정렬 */
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-list li {
+    margin: 10px 0;
+}
+
+.menu-list a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.menu-list li:hover a{
+    color: #000; /* 호버 시 글씨 색 변경 */
+    font-weight: bold;
+}
+
+/* 활성화된 메뉴 스타일 */
+.menu-list li.active a {
+    color: #000; 
+    font-weight: bold; 
+    text-decoration: none; 
+}
+
+
+.contact-info {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #666;
+}
+
+/* 콘텐츠 */
+.content {
+    width: 85%; /* 나머지 4/5 */
+    padding-left: 20px;
+}
+
+/* BEST FAQ와 공지사항 스타일 */
+.faq-section, .notice-section {
+    margin-top: 50px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background: #f7f7f7;
+    font-weight: bold;
+}
+
+table .highlight {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.faq-table, .notice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.faq-table th, .notice-table th, 
+.faq-table td, .notice-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.faq-table th, .notice-table th {
+    background: #f7f7f7;
+    font-weight: bold;
+}
+
+.faq-table .highlight, .notice-table .highlight {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.highlight {
+    color: #e74c3c; /* 빨간색 */
+    font-weight: bold;
+}
+
+
+table tbody tr:hover {
+    background-color: #f9f9f9; /* 마우스 오버 시 배경색 변경 */
+}
+
+.notice-table a {
+    text-decoration: none; 
+    color: inherit;        
+    font-weight: normal;   
+}
+
+.notice-table a:hover {
+    text-decoration: underline; 
+    color: #007bff;             
+}
+
+/* 푸터 */
+footer {
+    background: #f5f5f5;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative; /* 기본 위치 */
+    bottom: 0;
+}
+
+/* 공지사항 헤더 */
+.section-header {
+    display: flex;
+    justify-content: space-between; /* 제목과 버튼을 양 끝으로 배치 */
+    align-items: center;
+    margin-bottom: 10px; /* 제목 아래 간격 */
+}
+
+.section-header h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.more-btn {
+    font-size: 14px;
+    text-decoration: none;
+    color: #9b9898; /* 파란색 텍스트 */
+    font-weight: bold;
+}
+
+.more-btn:hover {
+    text-decoration: underline; /* 마우스 오버 시 밑줄 추가 */
+}
+
+.contact-text {
+    font-size: 18px; /* 글씨 크기 */
+    font-weight: bold; /* 굵기 */
+    color: #000;
+}
+
+.write-btn {
+    background-color: #9b9898;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.write-btn:hover {
+    background-color: #0056b3; /* 호버 시 버튼 색상 변경 */
+}
+
+/* FAQ 카테고리 스타일 */
+.faq-categories {
+    display: flex;
+    justify-content: left; 
+    margin-bottom: 20px;
+}
+
+.category-btn {
+    margin: 0 5px;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 20px;
+}
+
+.category-btn.active {
+    background-color: #000; /* 선택된 버튼의 배경색 */
+    color: #fff; /* 선택된 버튼의 글자색 */
+    border-color: #000;
+}
+
+.category-btn:hover {
+    background-color: #f1f1f1; /* 호버 시 배경색 */
+}
+
+/* FAQ 검색 스타일 */
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #d3d3d3;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-left: 100px;
+    
+}
+
+.search-container input{
+    background-color: #d3d3d3;
+    border: none;
+    outline: none;
+}
+
+.search-container i {
+    color: #000;
+    margin-left: 5px;
+}
+
+.faq-search {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.faq-search input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    border-radius: 5px 0 0 5px; /* 왼쪽 모서리 둥글게 */
+    outline: none;
+}
+
+.faq-search button {
+    padding: 10px;
+    margin-left: 5px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 10px; /* 오른쪽 모서리 둥글게 */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.faq-search button:hover {
+    background-color: #d3d3d3; /* 호버 시 색상 변경 */
+}
+
+/* FAQ 테이블 마우스 오버 효과 */
+.faq-table tbody tr:hover {
+    background-color: #f9f9f9; /* 마우스 오버 시 배경색 */
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.page-btn {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.page-btn.active {
+    background-color: #000; 
+    color: #fff; /* 현재 페이지 버튼 글자색 */
+    border-color: #000;
+}
+
+.page-btn:hover {
+    background-color: #f1f1f1; /* 호버 시 배경색 */
+}
+
+/* 돋보기 아이콘 크기 */
+.faq-search i {
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+/* 멤버십 섹션 */
+.membership-section {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.membership-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: start;
+}
+
+.membership-desc {
+    font-size: 16px;
+    color: #666;
+    text-align: start;
+    margin-bottom: 20px;
+}
+
+.membership-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.membership-table th, .membership-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.membership-table th {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+}
+
+.membership-table td {
+    background-color: #f9f9f9;
+}
+
+.membership-notice-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.membership-notice {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin-top: 10px;
+}
+
+.membership-table td:nth-child(1) {
+    font-weight: bold;
+    color: #333;
+}
+
+.membership-table td:first-child {
+    text-transform: uppercase; /* 등급 이름을 대문자로 표시 */
+}
+
+/* VIP 강조 */
+.membership-table tr:nth-child(1) td:first-child {
+    color: #e74c3c; /* 빨간색 */
+}
+
+/* DIAMOND 강조 */
+.membership-table tr:nth-child(2) td:first-child {
+    color: #3498db; /* 파란색 */
+}
+
+/* GOLD 강조 */
+.membership-table tr:nth-child(3) td:first-child {
+    color: #f1c40f; /* 금색 */
+}
+
+/* SILVER 강조 */
+.membership-table tr:nth-child(4) td:first-child {
+    color: #bdc3c7; /* 은색 */
+}
+
+/* BRONZE 강조 */
+.membership-table tr:nth-child(5) td:first-child {
+    color: #cd7f32; /* 동색 */
+}
+
+
+

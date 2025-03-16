@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="product-add.css">
+    <link rel="stylesheet" href="header.css">
+    <script src="product-add.js" defer></script>
+    <title>상품 추가</title>
+</head>
+<body>
+    <div id="header-container"></div>
+    <h1>상품 추가</h1>
+
+    <form id="addProductForm">
+        <label>상품명:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label>가격:</label>
+        <input type="number" id="price" name="price" required><br>
+
+        <label for="brand">브랜드</label>
+        <select id="brand" name="brand">
+            <option value="innocent">Innocent</option>
+            <option value="krencia">Krencia</option>
+            <option value="preenhome">Preenhome</option>
+            <option value="sortiedesign">Sortiedesign</option>
+            <option value="kcompany">Kcompany</option>
+            <option value="jpix">Jpix</option>
+            <option value="doar">Doar</option>
+            <option value="sollo">Sollo</option>
+            <option value="livwood">Livwood</option>
+            <option value="cocomi">Cocomi</option>
+            <option value="vaian">Vaian</option>
+            <option value="baumist">Baumist</option>
+            <option value="rotie">Rotie</option>
+            <option value="gorae">Gorae</option>
+            <option value="cheongsa-chorong">Cheongsa-chorong</option>
+            <option value="baote">Baote</option>
+            <option value="thenamu">Thenamu</option>
+            <option value="designersroom">Designersroom</option>
+            <option value="paroma">Paroma</option>
+            <option value="hugchair">Hugchair</option>
+        </select><br>
+
+
+        <label >카테고리</label>
+        <input type="radio" name="category" value="인테리어" id="category_interior"> 인테리어
+        <input type="radio" name="category" value="가구" id="category_gagu"> 가구
+        <input type="radio" name="category" value="욕실" id="category_bathroom"> 욕실
+        <input type="radio" name="category" value="홈" id="category_home"> 홈
+        <input type="radio" name="category" value="패브릭" id="category_fabric"> 패브릭
+        <input type="radio" name="category" value="수납" id="category_storage"> 수납
+        <input type="radio" name="category" value="아웃도어" id="category_outdoor"> 아웃도어 <br>
+
+
+        <label class="title">설명:</label>
+        <textarea id="description" name="description" placeholder="편안한 소파입니다."  required></textarea><br>
+
+        <label for="image_upload">이미지 업로드:</label>
+        <input type="file" id="image_upload" name="image_upload" accept="image/*" required><br>
+
+        <label>인기도:</label>
+        <input type="number" id="popularity" name="popularity" value="0" required>
+
+        <label>리뷰:</label>
+        <input type="number" id="reviews" name="reviews" value="0" required><br>
+
+        <label>상세 설명:</label>
+        <textarea id="detailed_desc" name="detailed_desc" placeholder="고급 소재로 제작된 편안한 소파입니다." required></textarea><br>
+
+        <label>사이즈 옵션 </label>
+        <input type="checkbox" name="size_options" value="Small"> Small
+        <input type="checkbox" name="size_options" value="Medium"> Medium
+        <input type="checkbox" name="size_options" value="Large"> Large
+        <input type="checkbox" name="size_options" value="Standard"> Standard
+        <input type="checkbox" name="size_options" value="Queen"> Queen
+        <input type="checkbox" name="size_options" value="King"> King
+        <br>
+
+        <label class="title">색상 옵션 </label>
+        <input type="checkbox" name="color_options" value="Red"> Red
+        <input type="checkbox" name="color_options" value="Blue"> Blue
+        <input type="checkbox" name="color_options" value="Green"> Green
+        <input type="checkbox" name="color_options" value="Gray"> Gray
+        <input type="checkbox" name="color_options" value="White"> White
+        <input type="checkbox" name="color_options" value="Black"> Black
+        <br>
+
+        <label class="title">혜택 옵션 </label>
+        <input type="checkbox" name="benefits" value="무이자 12개월"> 무이자 12개월
+        <input type="checkbox" name="benefits" value="무이자 24개월"> 무이자 24개월
+        <input type="checkbox" name="benefits" value="무이자 36개월"> 무이자 36개월
+        <input type="checkbox" name="benefits" value="무료 배송"> 무료 배송
+        <input type="checkbox" name="benefits" value="무료 조립 서비스"> 무료 조립 서비스
+        <input type="checkbox" name="benefits" value="카카오페이 할인"> 카카오페이 할인
+        <input type="checkbox" name="benefits" value="우리카드 할인"> 우리카드 할인
+        <br>
+
+        <label for="detail_image" class="title">상세 이미지</label>
+        <input type="file" id="detail_image" name="detail_image" accept="image/*" required><br>
+        <br>
+
+        <button type="submit">상품 추가</button>
+    </form>
+
+    <script src="header.js"></script>
+</body>
+</html>

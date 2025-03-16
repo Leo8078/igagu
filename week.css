@@ -1,0 +1,164 @@
+/* 기본 스타일 */
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.recd-brands h1 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: normal;
+    margin-bottom: 1.5em;
+}
+
+/* 전체 그리드 레이아웃 */
+.product-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* 큰 카드 스타일 */
+.large-card {
+    text-align: left;
+    background-color: #eee;
+    height: 230px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.brand-name {
+    font-size: 1.5rem;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* 작은 카드 스타일 */
+.small-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    height: 119px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.small-image-placeholder {
+    background-color: #ccc;
+    width: 130px;
+    height: 119px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #666;
+}
+
+.small-card-info {
+    flex: 1;
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+.small-brand-name {
+    display: block;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.small-product-name {
+    display: block;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.small-price {
+    display: block;
+    color: #777;
+}
+
+.like-button {
+    font-size: 1.5rem;
+    color: #000000;
+    cursor: pointer;
+    margin: 0.5em;
+    margin-top: 3em;
+}
+
+.large-product-image1 {
+    height: 230px;
+    background: url("image/2176628_represent.jpg") no-repeat center center/cover;
+    padding: 20px;
+}
+
+.large-product-image2 {
+    height: 230px;
+    background: url("image/mobile_mainvisual12_5.jpg") no-repeat center center/cover;
+    padding: 20px;
+}
+
+.large-product-image3 {
+    height: 230px;
+    background: url("image/larsad.png") no-repeat center center/cover;
+    padding: 20px;
+}
+
+.small-product-image1 {
+    width: 130px;
+    height: 119px;
+    background: url("image/attachments/001\ 2.png") no-repeat center center/cover;
+}
+
+.small-product-image2 {
+    width: 130px;
+    height: 119px;
+    background: url("image/attachments/001.png") no-repeat center center/cover;
+}
+
+.small-product-image3 {
+    width: 130px;
+    height: 119px;
+    background: url("image/attachments/007.png") no-repeat center center/cover;
+}
+
+.small-product-image4 {
+    width: 130px;
+    height: 119px;
+    background: url("image/attachments/006.png") no-repeat center center/cover;
+}
+
+.small-product-image5 {
+    width: 130px;
+    height: 119px;
+    background: url("image/attachments/005.png") no-repeat center center/cover;
+}
+
+.small-product-image6 {
+    width: 130px;
+    height: 119px;
+    background: url("image/wota.png") no-repeat center center/cover;
+}
+
+.small-product-image7 {
+    width: 130px;
+    height: 119px;
+    background: url("image/attachments/004\ 2.png") no-repeat center center/cover;
+}
+
+.small-product-image8 {
+    width: 130px;
+    height: 119px;
+    background: url("image/gagu/bathitem1-1.jpg") no-repeat center center/cover;
+}
+
+.small-product-image9 {
+    width: 130px;
+    height: 119px;
+    background: url("image/image1.jpg") no-repeat center center/cover;
+}

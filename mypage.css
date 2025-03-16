@@ -1,0 +1,262 @@
+/* 스타일은 전체적으로 수정사항을 반영 */
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* 헤더 */
+.header {
+    position: fixed;
+    top: 0;
+}
+
+.current-location {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    gap: 5px;
+    font-size: 14px;
+    color: #333;
+    margin-top: 100px;
+    align-items: center;
+}
+
+.current-location span {
+    font-weight: normal;
+    text-align: center;
+    color: #333;
+}
+
+.signup1 .step1, .signup2 .step2, .signup3 .step3 {
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.page-title {
+    text-align: center;
+    margin: 50px 0;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+}
+
+/* 회원 정보 */
+.userinfo-wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.userinfo {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* 유저 정보 헤더 */
+.userinfo-header {
+    display: flex; /* 수평으로 정렬 */
+    justify-content: center; 
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 80%; /* 너비 설정 */
+    margin: 0 auto; /* 중앙 정렬 */
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+/* 사용자 이름 */
+.username {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px; /* '로그아웃'과 간격 설정 */
+}
+
+/* 로그아웃 링크 스타일 */
+.logout-link {
+    color: #999; /* 회색 글씨 */
+    font-size: 12px;
+    text-decoration: none; /* 링크 밑줄 제거 */
+    cursor: pointer; /* 커서 포인터로 변경 */
+    margin-top: 6px;
+}
+
+.logout-link:hover {
+    color: #666; /* 호버 시 글씨 색 변경 */
+}
+
+.membership-status {
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.membership-level {
+    color: brown;
+}
+
+.account-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.account-detail {
+    text-align: inline-block;
+    width: 20%;
+}
+
+.coupon_arrow {
+    color: #999; /* 회색 글씨 */
+    font-size: 16px;
+    text-decoration: none; /* 링크 밑줄 제거 */
+    cursor: pointer; /* 커서 포인터로 변경 */
+    margin-left: 1px;
+}
+
+.coupon_arrow:hover {
+    color: #666; /* 호버 시 글씨 색 변경 */
+}
+
+
+/* 구분선 스타일 */
+.separator {
+    color: #ccc;
+    font-size: 20px; /* 기본 크기 */
+    margin: 0 10px; /* 구분선 양쪽에 여백 */
+    display: inline-block;
+    line-height: 80px; /* 높이를 조정하여 길이를 조절 */
+    width: 1px;
+}
+
+/* 마지막 구분선은 제거 */
+.find-link:last-child + .separator {
+    display: none;
+}
+
+.account-detail strong {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.account-detail p {
+    font-size: 18px;
+    color: #333;
+}
+
+.ad-banner {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #e6e6e6;
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.order-history, .coupon-history {
+    width: 80%;
+    margin: 0px auto;    
+    margin-top: 30px;
+    text-align: start;
+}
+
+.recent-period {
+    font-size: 16px;
+    color: #999;
+    margin-left: 10px;
+}
+
+.order-table, .coupon-table {
+    width: 80%;
+    margin: 30px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 80px;
+}
+
+.order-table table, .coupon-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-table th, .coupon-table th,
+.order-table td, .coupon-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-table th, .coupon-table th {
+    background-color: #f9f9f9;
+}
+
+.order-table td[colspan="5"] {
+    text-align: center;
+    color: #999;
+}
+
+.coupon-table td[colspan="6"] {
+    text-align: center;
+    color: #999;
+}
+
+.coupon-registration {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.coupon-registration h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center; /* 타이틀 중앙 정렬 */
+}
+
+.coupon-input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 75%; /* 부모 컨테이너의 75% 너비로 설정 */
+}
+
+.coupon-input-wrapper input {
+    width: 75%; /* 입력창도 75% 너비로 설정 */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.coupon-submit-btn {
+    width: 20%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.coupon-submit-btn:hover {
+    background-color: #555;
+}
+
+.coupon-info {
+    font-size: 12px;
+    color: #777;
+    text-align: left; 
+    /* margin-left: 155px; */
+    margin-left: 190px;
+    margin-top: 10px;
+}
+

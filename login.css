@@ -1,0 +1,194 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding-top: 80px;
+}
+
+header {
+    background: #000000;
+    color: #ffffff;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    height: 50px; 
+}
+
+nav {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%); /* 정확히 중앙에 위치하도록 조정 */
+    text-decoration: none;
+}
+
+
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.login-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+    margin-left: 0;
+    padding: 0;
+}
+
+.login-container {
+    width: 400px;
+    background-color: white;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: -10px; /* 로그인 타이틀과 박스 사이 간격 제거 */
+}
+
+.section-title {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.order-title {
+    font-size: 14px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+}
+
+.order-title::before, .order-title::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+    margin: 0 10px; /* 텍스트와 선 사이 간격 */
+}
+
+.login-form, .order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.input-fields input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.login-btn, .order-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 15px;
+    height: 85px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-btn {
+    background-color: white;
+    color: black;
+    border: 1px solid #ddd;
+}
+
+.order-form .input-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px; 
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+}
+
+.note {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-top: 2px;
+    display: flex;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+
+.social-icon {
+    width: 80px;
+    height: 80px;
+}
+
+.find-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; 
+    margin-top: 15px; 
+    margin-left: 55px;
+}
+
+.find-link {
+    font-size: 12px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.separator {
+    font-size: 12px;
+    color: #000;
+    margin: 0 10px;
+}
+
+.find-link:hover {
+    color: #007bff; 
+}
+

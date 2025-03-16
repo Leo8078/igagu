@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문완료</title>
+    <link rel="stylesheet" href="complete.css">
+    <link rel="stylesheet" href="header.css">
+    <script src="header.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="progress-wrapper">
+        <h2 class="signup-title">배송정보</h2>
+        <div class="progress-bar">
+            <span class="step1">01 장바구니</span>
+            <span class="separator">></span>
+            <span class="step2">02 주문서 작성</span>
+            <span class="separator">></span>
+            <span class="step3">03 주문완료</span>
+        </div>
+    </div>
+    <hr class="progress-line">
+
+    <br>
+    <br>
+    <br>
+
+    <div class="progress-wrapper2">
+        <h5 class="mini-title1">상세 조회</h5>
+    </div>
+    <hr class="progress-line2">
+    <div class="filter-bar">
+        <div>
+            <label for="period">기간: </label>
+            <select id="period">
+                <option>1주일</option>
+                <option>1개월</option>
+                <option>3개월</option>
+                <option>1년</option>
+            </select>
+            <input type="date"> ~ <input type="date">
+        </div>
+        <div>
+            <label for="category">종류: </label>
+            <select id="category">
+                <option>가구</option>
+                <option>인테리어</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="sort-container">
+        <!-- 첫 번째 그룹 -->
+        <div class="sort-group-left">
+            <button class="sort-button" id="latestSort">최신순</button>
+            <button class="sort-button" id="oldestSort">과거순</button>
+        </div>
+    
+        <!-- 두 번째 그룹 -->
+        <div class="sort-group-right">
+            <button class="sort-button" id="buy">구매</button>
+            <button class="sort-button" id="change">교환</button>
+            <button class="sort-button" id="sell">반품</button>
+        </div>
+        <div>
+        <button class="button" id="button">상세조회하기</button>
+        </div>
+    </div>
+
+    <hr class="progress-line2">
+
+    <div class="progress-wrapper2">
+        <h5 class="mini-title1">주문 내역</h5>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>주문번호</th>
+                    <th>주문일자</th>
+                    <th>상품정보</th>
+                    <th>수량</th>
+                    <th>배송금액</th>
+                    <th>상태</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- JavaScript가 데이터를 동적으로 추가합니다 -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="navigation-btns">
+        <button class="order-btn" id="order-btn">주문 완료</button>
+    </div>
+
+    <script>
+        // 장바구니 데이터를 가져오는 함수
+        function fetchCartData() {
+            fetch("get_cart.php") // PHP 파일 경로
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("네트워크 응답에 문제가 있습니다.");
+                    }
+                    return response.json(); // JSON 데이터를 반환
+                })
+                .then(cartItems => {
+                    renderOrderTable(cartItems); // 테이블에 데이터를 렌더링
+                })
+                .catch(error => {
+                    console.error("장바구니 데이터를 가져오는 중 오류 발생:", error);
+                });
+        }
+
+        // 주문 테이블에 데이터를 추가하는 함수
+        function renderOrderTable(cartItems) {
+            const tableBody = document.querySelector(".container table tbody");
+            tableBody.innerHTML = ""; // 기존 데이터를 초기화
+
+            cartItems.forEach((item, index) => {
+                const row = document.createElement("tr");
+
+                // 주문번호 열 (예: 임의의 주문번호 생성)
+                const orderNumber = document.createElement("td");
+                orderNumber.textContent = generateOrderNumber(index); // 주문번호 생성 로직
+                row.appendChild(orderNumber);
+
+                // 주문일자 열 (현재 날짜 사용)
+                const orderDate = document.createElement("td");
+                orderDate.textContent = new Date().toISOString().split("T")[0]; // YYYY-MM-DD 포맷
+                row.appendChild(orderDate);
+
+                // 상품정보 열
+                const productInfo = document.createElement("td");
+                productInfo.textContent = `${item.name} / ${item.size || "N/A"}, ${item.color || "N/A"}`;
+                row.appendChild(productInfo);
+
+                // 수량 열
+                const quantity = document.createElement("td");
+                quantity.textContent = item.quantity;
+                row.appendChild(quantity);
+
+                // 배송금액 열 (기본 배송비 사용)
+                const shippingCost = document.createElement("td");
+                shippingCost.textContent = "3,000 원"; // 기본 배송비
+                row.appendChild(shippingCost);
+
+                // 상태 열
+                const status = document.createElement("td");
+                const deliveryLink = document.createElement("a");
+                deliveryLink.href = "#"; // 배송 확인 링크
+                deliveryLink.className = "delivery-check";
+                deliveryLink.textContent = "배송확인하기";
+                status.appendChild(deliveryLink);
+                row.appendChild(status);
+
+                // 테이블에 행 추가
+                tableBody.appendChild(row);
+            });
+        }
+
+        // 주문 완료 버튼 클릭 이벤트
+        document.getElementById('order-btn').addEventListener('click', function() {
+            // 장바구니 데이터를 가져오는 함수 호출
+            fetch("get_cart.php") // 장바구니 데이터를 서버에서 가져오는 API
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("네트워크 응답에 문제가 있습니다.");
+                    }
+                    return response.json(); // JSON 데이터를 반환
+                })
+                .then(cartItems => {
+                    // 장바구니 데이터가 있으면 주문을 저장하는 함수 호출
+                    saveOrder(cartItems);
+                })
+                .catch(error => {
+                    console.error("장바구니 데이터를 가져오는 중 오류 발생:", error);
+                });
+        });
+
+        // 주문 데이터를 서버로 전송하는 함수
+        function saveOrder(cartItems) {
+            const orderData = cartItems.map(item => ({
+                orderNumber: generateOrderNumber(),
+                orderDate: new Date().toISOString().split("T")[0], // 현재 날짜
+                productInfo: `${item.name} / ${item.size || "N/A"} / ${item.color || "N/A"}`,
+                quantity: item.quantity,
+                price: item.price,
+            }));
+
+            // POST 요청으로 주문 데이터를 서버로 전송
+            fetch('save_order.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // 주문 성공 후 메시지 표시
+                    displaySuccessMessage();
+
+                    // 장바구니 데이터를 삭제하는 요청을 보냄
+                    clearCart(cartItems); // 장바구니 삭제 함수 호출
+
+                    // 일정 시간 후 마이페이지로 리다이렉트
+                    setTimeout(function() {
+                        window.location.href = "mypage.html"; // 마이페이지로 이동
+                    }, 1000); // 3초 후 리다이렉트
+                } else {
+                    console.error("주문 저장 실패:", data.message);
+                }
+            })
+            .catch(error => {
+                console.error("주문 저장 중 오류 발생:", error);
+            });
+        }
+
+        // 장바구니 데이터를 삭제하는 함수
+        function clearCart(cartItems) {
+            const productIds = cartItems.map(item => item.product_id); // 장바구니에서 삭제할 product_id 목록
+
+            fetch('delete_from_cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ product_ids: productIds }) // 선택된 product_id들을 서버로 전송
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log("장바구니가 비워졌습니다.");
+                } else {
+                    console.error("장바구니 삭제 실패:", data.message);
+                }
+            })
+            .catch(error => {
+                console.error("장바구니 삭제 중 오류 발생:", error);
+            });
+        }
+
+        // 주문번호 생성 함수
+        function generateOrderNumber() {
+            const baseNumber = 987654321; // 기본 숫자
+            return (baseNumber + Math.floor(Math.random() * 1000)).toString(); // 임의의 고유 주문번호
+        }
+
+        // 성공 메시지를 화면에 표시하는 함수
+        function displaySuccessMessage() {
+            const successMessageDiv = document.createElement("div");
+            successMessageDiv.textContent = "주문이 완료되었습니다.";
+            successMessageDiv.style.textAlign = "center";
+            successMessageDiv.style.padding = "20px";
+            successMessageDiv.style.backgroundColor = "#4CAF50";
+            successMessageDiv.style.color = "white";
+            successMessageDiv.style.fontSize = "20px";
+            successMessageDiv.style.marginTop = "20px";
+
+            // 페이지의 body에 메시지 추가
+            document.body.appendChild(successMessageDiv);
+        }
+
+        // 페이지 로드 시 데이터를 가져옴
+        fetchCartData();
+
+
+    </script>
+</body>
+
+</html>

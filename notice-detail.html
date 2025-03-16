@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항 상세</title>
+    <link rel="stylesheet" href="notice.css">
+    <link rel="stylesheet" href="header.css">
+    <script src="customer-service.js" defer></script>
+    <script src="notice.js" defer></script>
+</head>
+<body>
+    <!-- 헤더 -->
+    <div id="header-container"></div>
+
+    <div id="notice-detail">
+        <!-- 공지사항 상세 내용이 여기에 표시. -->
+    </div>
+    <script src="header.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
+
+        fetch(`notice-get.php?id=${postId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    document.getElementById('notice-detail').innerHTML = `
+                        <h1 class="page-title">${data.title}</h1>  <!-- 제목을 그대로 표시 -->
+                        <form id="notice-form">
+                            <p>작성일: ${data.date}</p>
+                            <div>
+                                <img src="image/logo_smaller_transparent.png" class="background-image">
+                                <label for="title">제목</label>
+                                <!-- 제목을 input이 아니라 읽기 전용으로 표시 -->
+                                <input type="text" id="title" name="title" value="${data.title}" readonly style="border: none; background-color: transparent; font-size: 24px;">
+                            </div>
+                            <div>
+                                <label for="content">내용</label>
+                                <!-- 내용은 읽기 전용으로 표시 -->
+                                <textarea id="content" name="content" readonly style="border: none; background-color: transparent; font-size: 16px; width: 100%; height: 200px;">${data.content}</textarea>
+                            </div>
+                            <button type="button" onclick="goBack()">돌아가기</button>
+                        </form>
+                    `;
+                } else {
+                    document.getElementById('notice-detail').innerHTML = '<p>존재하지 않는 공지사항입니다.</p>';
+                }
+            })
+            .catch(error => console.error('공지사항 데이터를 불러오는 데 실패했습니다.', error));
+            // 이전 페이지로 돌아가기 함수
+            function goBack() {
+                window.history.back(); // 브라우저 뒤로가기
+            }
+    </script>
+</body>
+</html>

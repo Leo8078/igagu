@@ -1,0 +1,399 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+    margin: 0;
+    line-height: 1.6;
+}
+
+header {
+    background: #000000;
+    color: #ffffff;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 60px;
+}
+
+.nav-links li {
+    position: relative;
+  }
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+}
+
+/* 상위 네비게이션 링크만 드롭다운이랑 안겹치게 */
+.nav-links > li > a:hover {
+    color: #9bacbf; 
+    font-weight: bold; 
+}
+
+  /* 드롭다운 메뉴 스타일 */
+  .dropdown-menu {
+    display: none; /* 기본적으로 숨김 */
+    overflow: hidden; /* 넘치는 부분 숨기기 */
+    transition: max-height 0.3s ease; /* 부드러운 애니메이션 효과 */
+    position: absolute;
+    top: 210%;
+    left: -440%;
+    width: 1000px; /* 드롭다운 전체 너비 */
+    background-color: rgba(0, 0, 0, 0.9); /* 투명도 */
+    padding: 20px;
+    z-index: 1000;
+  }
+  
+  /* 드롭다운 내부 레이아웃 */
+  .dropdown-content {
+    display: flex;
+    justify-content: space-between; /* 섹션 사이 여백 균등 분배 */
+    align-items: flex-start;
+  }
+  
+  .menu-section {
+    flex: 1; /* 각 섹션 동일한 너비 */
+    padding: 10px;
+  }
+  
+  .menu-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+  }
+  
+  .menu-section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-section li {
+    margin: 5px 0;
+    color: #ffffff;
+  }
+  
+  .menu-section li a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  .menu-section li a:hover {
+    color: #828282;
+  }
+  
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #d3d3d3;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-left: 100px;
+    
+}
+
+.search-container input{
+    background-color: #d3d3d3;
+    border: none;
+    outline: none;
+}
+
+.search-container i {
+    color: #000;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.search-container button {
+    all: unset;
+}
+
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: none; /* 기본적으로 숨김 */
+    z-index: 100;
+    padding: 20px;
+    width: 250px;
+}
+
+.search-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* 열 사이 간격 */
+}
+
+.search-columns > div {
+    flex: 1; /* 동일한 너비로 분할 */
+}
+
+.search-dropdown h4 {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 검색어 목록 스타일 */
+.search-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-dropdown ul li {
+    padding: 5px 0;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.search-dropdown ul li:hover {
+    background-color: #f0f0f0;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.user-icon {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.user-bag {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.out-icon {
+    display: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.banner {
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 슬라이더 */
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* 슬라이드 영역만 보이게 설정 */
+    margin-top: 60px; /* 헤더 아래 공간 확보 */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 버튼 스타일 */
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0.5em 1em;
+    border-radius: 50%;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+.caption1 {
+    position: absolute;
+    top: 35%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.caption1 p {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #fdceac;
+}
+
+.caption1 h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #fdceac;
+}
+
+.caption2 {
+    position: absolute;
+    top: 35%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.caption2 p {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #ffffff;
+}
+
+.caption2 h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #ffffff;
+}
+
+.caption2 p2 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #ffffff;
+}
+
+.categories {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5em;
+    padding: 3em 0;
+}
+
+.product:hover {
+    transform: scale(1.05); /* 크기를 키워줌 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 효과 */
+}
+
+.categories .product {
+    border: none;
+    border-radius: 20px;
+    width: 200px;
+    height: 160px;
+}
+
+.categories .product button {
+    position: relative;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 200px;
+    height: 160px;
+    overflow: hidden;
+}
+
+.categories .product button::before {
+    content: ""; /* 비어 있는 가상 요소 추가 */
+    position: absolute; /* 버튼 안에서 절대 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* 반투명 검정색 */
+    z-index: 1; /* 글자보다 뒤에 배치되도록 */
+    border-radius: 20px; /* 버튼과 동일한 모서리 둥글기 적용 */
+}
+
+.categories .product button span {
+    position: relative; /* 글자를 ::before 위로 올리기 위해 */
+    z-index: 2; /* ::before보다 위에 배치 */
+}
+
+.categories .product a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.ga button {
+    background: url("image/ga2.jpg") no-repeat center center/cover;
+}
+
+.in button {
+    background: url("image/in.png") no-repeat center center/cover;
+}
+
+.brand button {
+    background: url("image/brand.png") no-repeat center center/cover;
+}
+
+.harin button {
+    background: url("image/ta.jpg") no-repeat center center/cover;
+}
+
+.adv img {
+    height: 360px;
+    width: 100%;
+    margin-top: 10em;
+    margin-bottom: 5em;
+}
+
+footer {
+    text-align: center;
+    font-family: "Inter", sans-serif;
+}
