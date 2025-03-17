@@ -1,0 +1,176 @@
+https://dartpad.dev/
+
+
+// 구구단 출력
+/*
+void main() {
+  for (int i = 2; i < 10; i++) {
+    for (int j = 1; j < 10; j++) {
+      print('$i x $j = ${i * j}');
+    }
+    print('');
+  }
+}
+
+
+void printDan(int dan) {
+  for (var j = 1; j < 10; j++) {
+    print('$dan x $j = ${dan * j}');
+  }
+}
+
+
+void main() {
+  int a = 5;
+  double b = 3.1415;
+  String c = "문자열";
+  String c2 = '문자열2';
+  bool d = true; // or false
+}
+
+
+void main() {
+  var a = 5;
+  var b = 3.1415;
+  var c = "문자열";
+  var c2 = '문자열2';
+  var d = true; // or false
+
+  num v1 = 5; //num(정수)
+  num v2 = 5.12; //num(실수)
+  print(v1 is int);
+  print(v2 is double);
+
+  print(v1 is int);
+  print(v2 is double);
+}
+
+
+
+void main() {
+  //상수 : final(런타임), const(컴파일타임)
+
+  const value = 15;
+  print(value);
+  //value = 1;
+
+  final name = "홍길동";
+  print(name);
+}
+
+
+
+void main() {
+  var v = 5 + 4;
+  print(v);
+  print(v is int);
+  print(v is double);
+}
+
+
+
+void main() {
+  num v = 5;
+  print(++v);
+}
+
+void main() {
+  num v = 5;
+  print(v++);
+  print(v);
+}
+
+void main() {
+  num v = 5;
+  //bool c = v == 5;
+  if (v == 5) {
+    print("참!");
+  } else {
+    print("거짓!");
+  }
+}
+
+void main() {
+  // &&, ||, !
+  var a = true;
+  var b = false;
+  var c = a && b;
+  print(c);
+}
+
+
+
+void main() {
+  print(5 is double);
+}
+
+void main() {
+  int a = 10;
+  num b = a as num;
+  print(b);
+}
+*/
+
+//print() 함수를 변형해서 출력의 앞과 뒤에
+//*를 넣어주는 함수를 만들자.
+
+/*
+void main() {
+  print2("Hello World");
+}
+
+void print2(String a) {
+  print('*$a*');
+}
+*/
+
+//피보나치 수열 결과를 반환하는 함수를
+// f()라고 하자
+// f() 인자로 위치를 넣으면 그 값으 반환하라
+
+/*
+void main() {
+  //   f(0) -> 1
+  //   f(1) -> 1
+  //   f(2) -> 2 // f(0) + f(1)
+  //   f(3) -> 3 // f(1) + f(2)
+  //   f(4) -> 5 // f(2) + f(3)
+  //   f(5) -> 8 // f(3) + f(4)
+
+  print(f(5));
+}
+
+int f(n) {
+  return n < 2 ? 1 : f(n - 2) + f(n - 1);
+}
+
+void main() {
+  var lottoNums = [5, 6, 11, 13, 17, 21];
+  lottoNums.forEach((num) {
+    print(num);
+  });
+}
+*/
+
+/*
+ * 정사각형의 길일ㄹ 입력하면 출력하는 문제
+ * 예)
+ * n = 5일 경우
+ * =====
+ * =====
+ * =====
+ * =====
+ * =====  
+ */
+
+void main() {
+  var n = 5;
+  var result = "";
+  for (var y = 0; y < n; y++) {
+    for (var x = 0; x < n; x++) {
+      result += "=";
+    }
+    result += "\n";
+  }
+  print(result);
+}
