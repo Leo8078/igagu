@@ -1,0 +1,220 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo', // 앱 제목 설정
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+        ), // 테마 설정
+      ),
+      home: MyHomePage(), // 메인 화면 지정
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  final items = List.generate(100, (i) => i).toList(); // 0부터 99까지 리스트 생성
+
+  MyHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('제목3')), // 상단 앱바
+
+      // 여러 개의 컨테이너를 겹쳐서 표시하는 예제
+      // body: Stack(
+      //   children: [
+      //     Center(
+      //         child: Container(
+      //           color: Colors.red,
+      //           width: 100,
+      //           height: 100,
+      //           padding: const EdgeInsets.all(8.0),
+      //           margin: const EdgeInsets.all(8.0),
+      //         )
+      //     ),
+      //     Center(
+      //         child: Container(
+      //           color: Colors.green,
+      //           width: 80,
+      //           height: 80,
+      //           padding: const EdgeInsets.all(8.0),
+      //           margin: const EdgeInsets.all(8.0),
+      //         )
+      //     ),
+      //     Center(
+      //         child: Container(
+      //           color: Colors.blue,
+      //           width: 60,
+      //           height: 60,
+      //           padding: const EdgeInsets.all(8.0),
+      //           margin: const EdgeInsets.all(8.0),
+      //           child: Center(child: Text('이솔')), // 텍스트 추가
+      //         )
+      //     ),
+      //   ],
+      // )
+
+      // 리스트뷰로 스크롤 가능한 리스트를 구현하는 예제
+      // body: SingleChildScrollView(
+      //   child: ListBody(children: items.map((i) => Text('$i!!')).toList()),
+      // ),
+
+      // 기본적인 ListView 예제
+      // body: ListView(
+      //   scrollDirection: Axis.vertical,
+      //   children: [
+      //     ListTile(
+      //       leading: Icon(Icons.home),
+      //       title: Text('Home'),
+      //       trailing: Icon(Icons.navigate_next),
+      //       onTap: () => {},
+      //     ),
+      //     ListTile(
+      //       leading: Icon(Icons.home),
+      //       title: Text('Home'),
+      //       trailing: Icon(Icons.navigate_next),
+      //       onTap: () => {},
+      //     ),
+      //     ListTile(
+      //       leading: Icon(Icons.home),
+      //       title: Text('Home'),
+      //       trailing: Icon(Icons.navigate_next),
+      //       onTap: () => {},
+      //     ),
+      //   ],
+      // ),
+
+      // body: Text('!'),
+      // bottomNavigationBar: BottomNavigationBar(items: [
+      //   BottomNavigationBarItem(
+      //     icon:Icon(Icons.home),
+      //     label :'Home',
+      //   ),
+      //   BottomNavigationBarItem(
+      //     icon:Icon(Icons.person),
+      //     label:'Profile',
+      //   ),
+      //   BottomNavigationBarItem(
+      //     icon:Icon(Icons.notifications),
+      //     label:'Notification',
+      //   ),
+      //
+      // ]),
+
+      // body: Center(
+      //   child: Text('봄이 왔습니다.'),
+      // ),
+
+      // body: Padding(
+      //   padding:const EdgeInsets.all(80.0),
+      //   child:Container(
+      //     color:Colors.red,
+      //   ),
+      // ),
+
+      // body:Align(
+      //   alignment: Alignment.centerRight,
+      //   child:Container(
+      //     width:100,
+      //     height:100,
+      //     color: Colors.red,
+      //   ),
+      // ),
+
+      // body:Column(
+      //   children: [
+      //     Expanded(
+      //
+      //       child:Container(
+      //         color:Colors.black
+      //       ),
+      //     ),
+      //     Expanded(
+      //       child:Container(
+      //           color:Colors.red
+      //       ),
+      //     ),
+      //     Expanded(
+      //       child:Container(
+      //           color:Colors.yellow
+      //       ),
+      //     ),
+      //   ],
+      // )
+
+      // body: SizedBox(
+      //   width:800,
+      //   height:800,
+      //   child:Container(
+      //     color:Colors.red,
+      //
+      //   ),
+      // ),
+      // body:Center(
+      //   child:Card(
+      //     shape:RoundedRectangleBorder(
+      //       borderRadius: BorderRadius.circular(40.0),
+      //
+      //     ),
+      //     elevation: 4.0,
+      //     child: Container(
+      //       width:200,
+      //       height:200,
+      //       child:Center(
+      //       child: Text('생일축하합니다!'),
+      //     ),
+      //   )
+      //   )
+      // )
+
+      // body:Row(
+      //   children: [
+      //     ElevatedButton(
+      //       child:Text('RaisedButton'),
+      //       onPressed:() {}
+      //     ),
+      //     TextButton(
+      //       child:Text('TextButton'),
+      //       onPressed: () {},
+      //     ),
+      //     IconButton(
+      //       icon:Icon(Icons.add),
+      //       color:Colors.red,
+      //       iconSize:100.0,
+      //       onPressed: () {},
+      //     ),
+      //     FloatingActionButton(
+      //         child: Icon(Icons.add),
+      //         onPressed: () {},
+      //     ),
+      //
+      //   ],
+      // )
+
+     // body: Image.asset('assets/flutter.png')
+      // body: Column(
+      //   children: [
+      //     CircularProgressIndicator(),
+      //     LinearProgressIndicator()
+      //   ],
+      // ),
+    // body: CircleAvatar(
+    //   child: Icon(Icons.person),
+    // ),
+
+
+
+    );
+  }
+}
